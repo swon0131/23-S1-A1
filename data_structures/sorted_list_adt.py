@@ -18,6 +18,10 @@ class ListItem(Generic[T, K]):
         self.value = value
         self.key = key
 
+    def __eq__(self, other) -> bool:
+        if isinstance(other, ListItem):
+            return self.value == other.value and self.key == other.key
+
     def __str__(self) -> str:
         return '({0}, {1})'.format(self.value, self.key)
 
