@@ -29,6 +29,9 @@ class Grid:
         - x, y: The dimensions of the grid.
 
         Should also intialise the brush size to the DEFAULT provided as a class variable.
+        :complexity:
+        Best & Worse case: O(n * m), where n is the length of x and where m
+                            is the length of y.
         """
         self.x = x
         self.y = y
@@ -48,6 +51,9 @@ class Grid:
         self.brush_size = self.DEFAULT_BRUSH_SIZE
 
     def __getitem__(self, index):
+        """
+        Magic method to call instance of the item
+        """
         return self.grid[index]
 
     def __setitem__(self, index, val):
@@ -58,6 +64,8 @@ class Grid:
         Increases the size of the brush by 1,
         if the brush size is already MAX_BRUSH,
         then do nothing.
+        :complexity:
+        Best & Worse case: O(1), constant time
         """
         if self.brush_size < self.MAX_BRUSH:
             self.brush_size += 1
@@ -67,6 +75,8 @@ class Grid:
         Decreases the size of the brush by 1,
         if the brush size is already MIN_BRUSH,
         then do nothing.
+        :complexity:
+        Best & Worse case: O(1), constant time
         """
         if self.brush_size > self.MIN_BRUSH:
             self.brush_size -= 1
@@ -74,6 +84,9 @@ class Grid:
     def special(self):
         """
         Activate the special affect on all grid squares.
+        :complexity:
+        Best & Worse case: O(n * m), where n is the length of x and where m
+                            is the length of y.
         """
         for i in range(self.x):
             for n in range(self.y):

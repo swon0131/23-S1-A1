@@ -306,6 +306,9 @@ class MyWindow(arcade.Window):
         layer: The layer being applied.
         px: x position of the brush.
         py: y position of the brush.
+        :complexity:
+        Best & Worse Case: O(log(n*m)), where n is the size of row x's, where
+                            m is the size of the column y's
         """
         d = self.grid.brush_size
 
@@ -339,6 +342,8 @@ class MyWindow(arcade.Window):
         """
         Called when the next step of the replay is requested.
         Returns whether the replay is finished.
+        :complexity:
+        Best & Worse Case: O(1) constant time
         """
         if not self.replayTracker.redoQueue.is_empty():
             self.replayTracker.play_next_action(self.grid)

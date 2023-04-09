@@ -15,6 +15,8 @@ class UndoTracker:
 
         If your collection is already full,
         feel free to exit early and not add the action.
+        :complexity:
+        Best & Worse Case: O(1) constant time
         """
         if not self.undoArr.is_full():
             self.undoArr.push(action)
@@ -23,7 +25,8 @@ class UndoTracker:
         """
         Undo an operation, and apply the relevant action to the grid.
         If there are no actions to undo, simply do nothing.
-
+        :complexity:
+        Best & Worse Case: O(1) constant time
         :return: The action that was undone, or None.
         """
         if not self.undoArr.is_empty():
@@ -38,7 +41,8 @@ class UndoTracker:
         """
         Redo an operation that was previously undone.
         If there are no actions to redo, simply do nothing.
-
+        :complexity:
+        Best & Worse Case: O(1) constant time
         :return: The action that was redone, or None.
         """
         if not self.redoArr.is_empty():

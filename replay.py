@@ -25,6 +25,8 @@ class ReplayTracker:
 
         `is_undo` specifies whether the action was an undo action or not.
         Special, Redo, and Draw all have this is False.
+        :complexity:
+        Best & Worse Case: O(1) constant time
         """
         if is_undo:
             self.undoBool.append(True)
@@ -39,6 +41,8 @@ class ReplayTracker:
         Returns a boolean.
             - If there were no more actions to play, and so nothing happened, return True.
             - Otherwise, return False.
+                :complexity:
+        Best & Worse Case: O(1) constant time
         """
         if not self.redoQueue.is_empty():
             undo_action = self.undoBool.serve()

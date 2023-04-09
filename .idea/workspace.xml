@@ -5,11 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b6e12799-37ee-44ea-9ef6-b978b0788fda" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/data_structures/array_sorted_list.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_structures/array_sorted_list.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_structures/sorted_list_adt.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_structures/sorted_list_adt.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/grid.py" beforeDir="false" afterPath="$PROJECT_DIR$/grid.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/layer_store.py" beforeDir="false" afterPath="$PROJECT_DIR$/layer_store.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layer_util.py" beforeDir="false" afterPath="$PROJECT_DIR$/layer_util.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/replay.py" beforeDir="false" afterPath="$PROJECT_DIR$/replay.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/undo.py" beforeDir="false" afterPath="$PROJECT_DIR$/undo.py" afterDir="false" />
@@ -36,8 +34,8 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="Python tests.Python tests for test_window.TestGrid">
-    <configuration name="replay" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python tests.Python tests for test_add_layer.TestAddLayer">
+    <configuration name="run_tests" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="FIT1008" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -49,7 +47,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/replay.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/run_tests.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -58,45 +56,45 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="Python tests for test_replay.TestReplay" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+    <configuration name="Python tests for test_add_layer.TestAddLayer" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="FIT1008" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests/test_misc" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests/test_layer_stores" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_replay.TestReplay&quot;" />
+      <option name="_new_target" value="&quot;test_add_layer.TestAddLayer&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="Python tests for test_replay.TestReplay.test_multiple_replays" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+    <configuration name="Python tests for test_seq_layer.TestSeqLayer" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="FIT1008" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests/test_misc" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests/test_layer_stores" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_replay.TestReplay.test_multiple_replays&quot;" />
+      <option name="_new_target" value="&quot;test_seq_layer.TestSeqLayer&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="Python tests for test_undo.TestUndo" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+    <configuration name="Python tests for test_set_layer.TestSetLayer" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="FIT1008" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests/test_misc" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests/test_layer_stores" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_undo.TestUndo&quot;" />
+      <option name="_new_target" value="&quot;test_set_layer.TestSetLayer&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
@@ -116,11 +114,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python tests.Python tests for test_add_layer.TestAddLayer" />
+        <item itemvalue="Python tests.Python tests for test_seq_layer.TestSeqLayer" />
+        <item itemvalue="Python tests.Python tests for test_set_layer.TestSetLayer" />
+        <item itemvalue="Python.run_tests" />
         <item itemvalue="Python tests.Python tests for test_window.TestGrid" />
-        <item itemvalue="Python.replay" />
-        <item itemvalue="Python tests.Python tests for test_undo.TestUndo" />
-        <item itemvalue="Python tests.Python tests for test_replay.TestReplay" />
-        <item itemvalue="Python tests.Python tests for test_replay.TestReplay.test_multiple_replays" />
       </list>
     </recent_temporary>
   </component>

@@ -56,13 +56,22 @@ class SetLayerStore(LayerStore):
     """
 
     def __init__(self):
+        """
+        Constructor with layerStore represented with ArrayStack ADT of element
+        size 1, as only one layer can be stored in the SetLayerStore
+        var: is_special is used to toggle the special()
+        :complexity:
+        Best & Worse case: O(1), constant time
+        """
         super().__init__()
         self.layerStack = ArrayStack(1)
         self.is_special = False
 
     def add(self, layer: Layer) -> bool:
         """
-        Set the single layer
+        Set the single layer into the layerStore
+        :complexity:
+        Best & Worse case: O(1), constant time
         """
         # Check if full
         if self.layerStack.is_full():
@@ -75,6 +84,12 @@ class SetLayerStore(LayerStore):
         return True
 
     def get_color(self, start, timestamp, x, y) -> tuple[int, int, int]:
+        """
+        Apply the layer that is on the Stack
+        If is_special(), apply invert layer
+        :complexity:
+        Best & Worse case: O(1), constant time
+        """
         if self.layerStack.is_full():  # Stack has layer
             if self.is_special:
                 # Apply the layer and then invert
@@ -92,6 +107,8 @@ class SetLayerStore(LayerStore):
     def erase(self, layer: Layer) -> bool:
         """
         Remove the single layer. Ignore what is currently selected.
+        :complexity:
+        Best & Worse case: O(1), constant time
         """
         if self.layerStack.is_full():
             self.layerStack.pop()
@@ -101,7 +118,9 @@ class SetLayerStore(LayerStore):
 
     def special(self):
         """
-        Invert the colour output.
+        Invert the colour output. Toggles, the boolean var is_special
+        :complexity:
+        Best & Worse cast: O(1), constant time
         """
         # special() toggles the is_special boolean
         if self.is_special:
@@ -119,11 +138,24 @@ class AdditiveLayerStore(LayerStore):
     """
 
     def __init__(self):
+        """
+        In the constructor, 2 CircularQueue are used for additive
+        AdditiveLayerStore uses the circularqueue due to the nature of add
+        , erase, and special(), where the oldest layer gets removed out of
+        the layerStore first until it reaches the newly added layer
+        :complexity:
+        Best & Worse Case: O(1)
+        """
         super().__init__()
         self.layerCircularQueue = CircularQueue(2000)
         self.tempCircularQueue = CircularQueue(2000)
 
     def add(self, layer: Layer) -> bool:
+        """
+        Add a new layer to be added last
+        :complexity:
+        Best & Worse case: O(1), constant time
+        """
         # If full and cannot add, return False
         if self.layerCircularQueue.is_full():
             return False
@@ -132,6 +164,14 @@ class AdditiveLayerStore(LayerStore):
             return True
 
     def get_color(self, start, timestamp, x, y) -> tuple[int, int, int]:
+        """
+        Returns the layers that exists in the CircularQueue from the oldest
+        layer first, then proceed to the last recently added layer.
+        :complexity:
+        Best Case: O(1), where the layerStore is empty.
+        Worse Case: O(2000), where 2000 is the maximum number of layer the
+                    layerStore data structure can hold.
+        """
         if self.layerCircularQueue.is_empty():
             return start
         else:
@@ -145,6 +185,11 @@ class AdditiveLayerStore(LayerStore):
             return start
 
     def erase(self, layer: Layer) -> bool:
+        """
+        Remove the first layer that was added. Ignore what is currently selected.
+        :complexity:
+        Best & Worse Case: O(1), constant time
+        """
         if self.layerCircularQueue.is_empty():
             return False
         else:
@@ -153,6 +198,13 @@ class AdditiveLayerStore(LayerStore):
             return True
 
     def special(self):
+        """
+        Reverse the order of current layers (first becomes last, etc.)
+        :complexity:
+        Best Case: O(1), where the queue is empty
+        Worse Case: O(2 * n), where n is the number of elements in the
+                    data structure. Becomes O(n) after omit.
+        """
         # Make sure the layer store is not empty
         if not self.layerCircularQueue.is_empty():
             layerStack = ArrayStack(self.layerCircularQueue.length)
@@ -177,11 +229,24 @@ class SequenceLayerStore(LayerStore):
     """
 
     def __init__(self):
+        """
+        Constructor has variable ArraySortedList as the layer store.
+        The ADT used for SequenceLayerStore will be ArraySortedList due
+        to the nature of layer store to be sorted by its index, and also
+        the requirement of special() method to lexicographically
+        sort the layer store.
+        :complexity:
+        Best & Worse case: O(1), constant time
+        """
         super().__init__()
         self.layerArr = ArraySortedList(len(get_layers()))
-        self.layerSet = BSet(len(get_layers()))
 
     def add(self, layer: Layer) -> bool:
+        """
+        Ensure this layer type is applied.
+        :complexity:
+        Best & Worse case: O(1), constant time
+        """
         if self.layerArr.is_full():
             # If array is full, return False
             return False
@@ -198,6 +263,14 @@ class SequenceLayerStore(LayerStore):
             return False
 
     def get_color(self, start, timestamp, x, y) -> tuple[int, int, int]:
+        """
+        Of all currently applied layers, remove the one with median `name`.
+        In the event of two layers being the median names, pick the lexicographically smaller one.
+        :complexity:
+        Best case: O(1), where the array is empty.
+        Worse case: O(n * m), where n is the number of elements in the array that
+                    is "applying", where m is the array in get_layers()
+        """
         if self.layerArr.is_empty():
             return start
         else:
@@ -209,6 +282,11 @@ class SequenceLayerStore(LayerStore):
             return start
 
     def erase(self, layer: Layer) -> bool:
+        """
+        Ensure this layer type is not applied.
+        :complexity:
+        Best & Worse case: O(1), constant time
+        """
         if self.layerArr.is_empty():
             # If array is empty, return False
             return False
@@ -222,6 +300,13 @@ class SequenceLayerStore(LayerStore):
             return False
 
     def special(self):
+        """
+        Of all currently applied layers, remove the one with median `name`.
+        In the event of two layers being the median names, pick the lexicographically smaller one.
+        :complexity:
+        Best case: O(1), where the layer store is empty
+        Worse case: O(n), where n is the number of layers in the layer store.
+        """
         if not self.layerArr.is_empty():
             # Arrange the array in lexicographic ordering into lexiArr from layerArr
             lexiArr = ArraySortedList(len(self.layerArr))
